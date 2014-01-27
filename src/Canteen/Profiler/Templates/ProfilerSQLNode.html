@@ -1,0 +1,44 @@
+<tr class="profiler-query-info-header profiler-node-queries-{{id}}">
+	<th class="profiler-gutter">&nbsp;</td>
+	<th>start time (ms)</th>
+	<th>duration (ms)</th>
+	<th>query type</th>
+</tr>
+<tr class="profiler-query-info profiler-node-queries-{{id}}">
+	<td>&nbsp;</td>
+	<td class="profiler-query-start-timer profiler-monospace">
+		<span class="profiler-unit">T+</span>{{startTimer}}
+	</td>
+	<td class="profiler-query-duration profiler-monospace">{{duration}}</td>
+	<td class="profiler-query-type">{{type}}</td>
+</tr>
+<tr>
+	<td class="profiler-node-queries-{{id}}">&nbsp;</td>
+	<td class="profiler-node-queries-{{id}}" colspan="3">
+		<pre class="prettyprint lang-sql">{{query}}</pre>
+	</td>
+</tr>
+<tr>
+	<td colspan="4" class="profiler-query-more-info-links">
+		<button class="profiler-back-to-top">top</button>
+		&nbsp;&middot;&nbsp;
+		<button class="profiler-show-callstack" data-query-id="{{queryId}}">show callstack</button>
+	</td>
+</tr>
+<tr class="profiler-hidden" id="{{queryId}}_query_callstack">
+	<td>&nbsp;</td>
+	<td colspan="3">
+		<table class="profiler-query_callstack">
+			{{for:stack}}
+				<tr class="{{rowClass}}">
+					<td class="profiler-callstack-method">
+						<code class="prettyprint">{{class}}{{function}}</code>
+					</td>
+				</tr>
+			{{/for:stack}}
+		</table>
+	</td>
+</tr>
+<tr class="profiler-query-seperator">
+	<td colspan="4"><div class="profiler-hr"><hr /></div></td>
+</tr>

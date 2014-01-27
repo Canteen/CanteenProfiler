@@ -1,0 +1,12 @@
+<tr class="depth_{{depth}} {{trivial}}">
+	<td class="profiler-step_id">{{indent}}{{name}}</td>
+	<td class="profiler-stat profiler-monospace profiler-step_self_duration">{{selfDuration}}</td>
+	<td class="profiler-stat profiler-monospace profiler-step_total_duration">{{totalDuration}}</td>
+	<td class="profiler-stat profiler-monospace profiler-start_delay">
+		<span class="profiler-unit">+</span>{{startDelay}}
+	</td>
+	<td class="profiler-stat profiler-monospace profiler-query_count">
+		<button class="profiler-show-queries-button" data-node-id="{{id}}">{{queryCount}} sql</button>
+	</td>
+	<td class="profiler-stat profiler-monospace profiler-query_time">{{queryTime}}</td>
+</tr>

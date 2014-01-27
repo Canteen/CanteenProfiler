@@ -1,0 +1,32 @@
+{
+    "name": "canteen/profiler",
+	"description" : "Profiler for PHP to measure memory usage and performance.",
+	"version" : "1.0.0",
+    "type": "library",
+	"keywords": ["memory", "profiler", "performance"],
+    "license": "MIT",
+	"homepage" : "http://github.com/Canteen/CateenProfiler",
+	"time": "2013-10-12",
+	"authors": [
+        {
+            "name": "Matt Karl",
+            "email": "matt@mattkarl.com",
+            "homepage": "http://github.com/bigtimebuddy",
+            "role": "Developer"
+        }
+	],
+	"autoload": {
+        "psr-0": {"Canteen": "src/"}
+    },
+	"require": {
+		"php": ">=5.4.0",
+		"canteen/parser": "~1.0",
+	},
+	"minimum-stability": "dev",
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/Canteen/CateenProfiler"
+		}
+	]
+}

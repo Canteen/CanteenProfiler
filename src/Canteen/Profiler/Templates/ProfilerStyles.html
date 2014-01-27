@@ -1,0 +1,120 @@
+<style class="profiler" type="text/css">
+
+#profiler-main_container { 
+	position: fixed; 
+	z-index: 2147483640; 
+	left: 0; 
+	top: 0; 
+	font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif; 
+	font-size: 100%;
+	color: #555; 
+}
+
+#profiler-main_container button { color: #07c; text-decoration: none; background:transparent; border:0}
+
+.profiler-monospace { font-family: Consolas,monospace,serif; }
+.profiler-gutter { width: 5px; }
+
+.profiler-button {
+	float: left;
+	padding: 4px 7px; 
+	background: #FFF; 
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+	text-align: center;
+	cursor: pointer;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-bottom-right-radius: 10px;
+	font-family: Consolas,monospace,serif;
+}
+
+.profiler-button_selected {
+	color: #FFF;
+	background: maroon;
+}
+.profiler-button_selected .profiler-unit { color: #fff; }
+
+.profiler-unit { color: #aaa; }
+.profiler-hidden { display: none; }
+
+.profiler-result-container {
+	float: left;
+	max-width: 575px;
+	max-height: 600px;
+	margin-left: -2px;
+	top: -1px;
+	border: 1px solid #aaa;
+	border-top: 0;
+	padding: 5px 10px;
+	z-index: 2147483641;
+	background-color: #FFF;
+	text-align: left;
+	line-height: 18px;
+	overflow: auto;
+	-moz-box-shadow: 0px 1px 15px #555;
+	-webkit-box-shadow: 0px 1px 15px #555;
+	box-shadow: 0px 1px 15px #555;
+}
+
+.profiler-info { padding: 3px 0; margin-bottom: 3px; border-bottom: 1px solid #DDD; overflow: hidden; }
+.profiler-title { float: left; }
+.profiler-servername { float: right; font-size: 95%; }
+
+.profiler-result table { border: 0; }
+.profiler-result table table td, .profiler-result table table th { padding: 0; }
+.profiler-result tfoot td { padding-top: 5px; font-size: 85%; }
+.profiler-result .profiler-total-querytime { text-align: right; }
+
+.profiler-result td, .profiler-result th { border: 0; padding: 2px 6px 0;background:#fff !important }
+.profiler-result-steps th {
+	padding: 1px 6px;
+	font-size: 85%;
+	font-weight: normal;
+	color: #aaa;
+	text-align: right;
+}
+
+.profiler-result-steps table .profiler-step_id {
+	width: 250px;
+	text-align: left;
+	color: #555;
+}
+
+.profiler-result-steps td.profiler-stat {
+	text-align: right; 
+	font-size: 95%;
+	color: #000;
+	width: 90px;
+}
+
+.profiler-children-hidden .profiler-step_total_duration { display: none; }
+.profiler-trivial-hidden .profiler-trivial, .profiler-trivial-hidden .profiler-trivial td { display: none; }
+.profiler-trivial td { color: #aaa !important; }
+
+.profiler-query-more-info-links { text-align: right; font-size: 85%; }
+
+.profiler-query-seperator td { padding: 0; }
+.profiler-hr { border-bottom: 1px solid #aaa; height: 1px; padding: 0; }
+.profiler-hr hr { display: none; }
+
+.profiler-result-queries table { width: 100%; }
+.profiler-result-queries th { font-weight: normal; font-size: 85%; color: #aaa; text-align: left; }
+.profiler-result-queries .profiler-query-node-name th { background: #ddd; color: #555; }
+.profiler-result-queries .profiler-query-info td { font-size: 85%; }
+
+.profiler-query_callstack { font-size: 85%; width: 100%; }
+.profiler-query_callstack .profiler-callstack-file { margin-bottom: 3px; padding-left: 7px; background: #ddd; color: #555; }
+
+pre.prettyprint {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	border: 0;
+	padding: 0;
+	font-size: 85%;
+}
+
+</style>

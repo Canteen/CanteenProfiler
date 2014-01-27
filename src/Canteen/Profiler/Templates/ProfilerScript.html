@@ -1,0 +1,90 @@
+<script class="profiler">
+
+$(function(){
+	$('#profiler-main_timer').click(function(event)
+	{
+		$(this).toggleClass('profiler-button_selected');
+		$('.profiler-result-container').toggleClass('profiler-hidden');
+	});
+	
+	var flagChildrenVisible = false;
+	$('#profiler-show-total_duration').click(function(event)
+	{
+		if (flagChildrenVisible)
+		{
+			$('#profiler-results').addClass('profiler-children-hidden')
+			$(this).text("show time w/children");
+			flagChildrenVisible = false;
+		}
+		else
+		{
+			$('#profiler-results').removeClass('profiler-children-hidden')
+			$(this).text('hide children');
+			flagChildrenVisible = true;
+		}
+		event.preventDefault();
+	});
+
+	var flagTrivialVisible = false;
+	$('#profiler-show-trivial_button').click(function(event)
+	{
+		if (flagTrivialVisible) //hide trivial methods
+		{
+			flagTrivialVisible = false;
+			$('#profiler-results').addClass('profiler-trivial-hidden')
+			$(this).text('show trivial');
+		}
+		else
+		{
+			flagTrivialVisible = true;
+			$('#profiler-results').removeClass('profiler-trivial-hidden')
+			$(this).text('hide trivial');
+		}
+		event.preventDefault();
+	})
+
+	var queryVisibleFlags = {};
+	$('.profiler-show-callstack').click(function(event)
+	{
+		var queryId = $(this).data('query-id');
+		if (typeof queryVisibleFlags[ queryId ] == 'undefined')
+		{
+			queryVisibleFlags[ queryId ] = false;
+		}
+
+		if (queryVisibleFlags[ queryId ]) //hide callstack
+		{
+			$('#' + queryId + "_query_callstack").addClass('profiler-hidden');
+			$(this).text('show callstack');
+			queryVisibleFlags[ queryId ] = false;
+		}
+		else //show callstack
+		{
+			$('#' + queryId + "_query_callstack").removeClass('profiler-hidden');
+			$(this).text('hide callstack');
+			queryVisibleFlags[ queryId ] = true;
+		}
+
+		event.preventDefault();
+	})
+
+	$('.profiler-show-queries-button').click(function(event)
+	{
+		$('#profiler-query-results').toggleClass('profiler-hidden');
+
+		var nodeId = $(this).data('node-id');
+		window.location.hash = 'profiler-node-queries-' + nodeId;
+		$('.profiler-node-queries-' + nodeId).each(function () {
+			var cell = $(this),
+			highlightHex = '#FFFFBB',
+			currentColor = '#FFF';
+
+			cell.css('backgroundColor', highlightHex);
+
+			cell.animate({ backgroundColor: currentColor }, 2000);
+		});
+		event.preventDefault();
+	});
+});
+
+</script>

@@ -1,0 +1,42 @@
+{{template:ProfilerStyles}}
+{{template:ProfilerScript}}
+<div id="profiler-main_container">
+	<div id="profiler-main_timer" class="profiler-button">
+		{{globalDuration}} <span class="profiler-unit">ms</span>  / 
+		{{memUsage}} <span class="profiler-unit">{{memUnit}}B</span>
+	</div>
+	<div class="profiler-result-container profiler-hidden">
+		<div id="profiler-results" class="profiler-result profiler-result-steps profiler-children-hidden profiler-trivial-hidden">
+			<div class="profiler-info">
+				<span class="profiler-title">{{title}}</span>
+				<span class="profiler-servername">
+					{{serverName}} on {{date}}
+				</span>
+			</div>
+			<table border="0" cell-padding="0" cellspacing="0">
+				<tr>
+					<th class="profiler-step_id"></th>
+					<th class="profiler-step_self_duration">duration (ms)</th>
+					<th class="profiler-step_total_duration">with children (ms)</th>
+					<th class="profiler-step-start_delay">from start (ms)</th>
+					<th class="profiler-step-query_info" colspan="2">query time (ms)</th>
+				</tr>
+				{{nodes}}
+				<tfoot>
+					<tr>
+						<td colspan="3" class="profiler-extended-links">
+							<button id="profiler-show-trivial_button">show trivial</button>
+							<button id="profiler-show-total_duration">show time w/children</button>
+						</td>
+						<td colspan="3" class="profiler-total-querytime profiler-monospace">{{queryPercent}}<span class="unit">% in sql</span></td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<div id="profiler-query-results" class="profiler-result profiler-result-queries profiler-hidden">
+			<table border="0" cell-padding="0" cellspacing="0">
+				{{queryNodes}}
+			</table>
+		</div>
+	</div>
+</div>
