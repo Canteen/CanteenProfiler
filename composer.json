@@ -20,7 +20,7 @@
     },
 	"require": {
 		"php": ">=5.4.0",
-		"canteen/parser": "~1.0",
+		"canteen/parser": "~1.0"
 	},
 	"minimum-stability": "dev",
 	"repositories": [
