@@ -1,0 +1,1409 @@
+{
+    "project": {
+        "name": "Canteen Profiler",
+        "description": "Profiler for PHP to measure memory usage and performance.",
+        "version": "1.0.0",
+        "logo": ""
+    },
+    "files": {
+        "src/Canteen/Profiler/Profiler.php": {
+            "name": "src/Canteen/Profiler/Profiler.php",
+            "modules": {
+                "Canteen\\Profiler": 1
+            },
+            "classes": {
+                "Profiler": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Profiler/ProfilerGhostNode.php": {
+            "name": "src/Canteen/Profiler/ProfilerGhostNode.php",
+            "modules": {},
+            "classes": {
+                "ProfilerGhostNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Profiler/ProfilerNode.php": {
+            "name": "src/Canteen/Profiler/ProfilerNode.php",
+            "modules": {},
+            "classes": {
+                "ProfilerNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Profiler/ProfilerRenderer.php": {
+            "name": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "modules": {},
+            "classes": {
+                "ProfilerRenderer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Profiler/ProfilerSQLNode.php": {
+            "name": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "modules": {},
+            "classes": {
+                "ProfilerSQLNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Canteen\\Profiler": {
+            "name": "Canteen\\Profiler",
+            "submodules": {},
+            "classes": {
+                "Profiler": 1,
+                "ProfilerGhostNode": 1,
+                "ProfilerNode": 1,
+                "ProfilerRenderer": 1,
+                "ProfilerSQLNode": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 52
+        }
+    },
+    "classes": {
+        "Profiler": {
+            "name": "Profiler",
+            "shortname": "Profiler",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Profiler",
+            "namespace": "",
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 17,
+            "description": "The Profiler is used to analyze your application in order to determine where you could use\nthe most optimization. The profiler class is where all interaction with the Profiler takes \nplace. You use it to create step nodes and render the output.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "parser",
+                    "description": "Optional to pass in existing Parser",
+                    "type": "Parser",
+                    "optional": true,
+                    "optdefault": "null"
+                }
+            ]
+        },
+        "ProfilerGhostNode": {
+            "name": "ProfilerGhostNode",
+            "shortname": "ProfilerGhostNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Profiler",
+            "namespace": "",
+            "file": "src/Canteen/Profiler/ProfilerGhostNode.php",
+            "line": 8,
+            "description": "Ghost node used as a faux ProfilerNode and ProfilerSQLNode when the Profiler is disabled."
+        },
+        "ProfilerNode": {
+            "name": "ProfilerNode",
+            "shortname": "ProfilerNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Profiler",
+            "namespace": "",
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 101,
+            "description": "Class which represents the profiler steps",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "Name of this step",
+                    "type": "String"
+                },
+                {
+                    "name": "depth",
+                    "description": "Tree depth of this step",
+                    "type": "Int"
+                },
+                {
+                    "name": "parentNode",
+                    "description": "Reference to this step's parent. null if top-level.",
+                    "type": "ProfilerNode"
+                },
+                {
+                    "name": "profilerKey",
+                    "description": "API key to identify an internal API call from an external one.",
+                    "type": "String"
+                }
+            ]
+        },
+        "ProfilerRenderer": {
+            "name": "ProfilerRenderer",
+            "shortname": "ProfilerRenderer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Profiler",
+            "namespace": "",
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 29,
+            "description": "Rendering class used to render special step nodes.",
+            "extends": "CanteenBase",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "topNodes",
+                    "description": "The collection of ProfilerNodes to render",
+                    "type": "Array"
+                },
+                {
+                    "name": "showDepth",
+                    "description": "The depth amount to show",
+                    "type": "Number"
+                }
+            ]
+        },
+        "ProfilerSQLNode": {
+            "name": "ProfilerSQLNode",
+            "shortname": "ProfilerSQLNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Profiler",
+            "namespace": "",
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 52,
+            "description": "Class representing each SQL query run",
+            "extends": "CanteenBase",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "query",
+                    "description": "the sql query for this node",
+                    "type": "String"
+                },
+                {
+                    "name": "profileNode",
+                    "description": "reference to the step \nthat this query is running within",
+                    "type": "Boolean|ProfilerNode",
+                    "optional": true,
+                    "optdefault": "null"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 3,
+            "description": "Original library from:",
+            "link": "http://github.com/jimrubenstein/php-profiler",
+            "author": "Jim Rubenstein <jrubenstein@gmail.com>",
+            "class": "Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 27,
+            "description": "Used to insure that the {@link init} method is only called once.",
+            "itemtype": "property",
+            "name": "init",
+            "type": "Boolean",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 34,
+            "description": "Used to identify when the profiler has been enabled. If <em>false</em> no \nprofiling data is stored, in order to reduce the overhead of running the profiler",
+            "itemtype": "property",
+            "name": "enabled",
+            "type": "Boolean",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 42,
+            "description": "Tracks the current step node.",
+            "itemtype": "property",
+            "name": "currentNode",
+            "type": "ProfilerNode",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 49,
+            "description": "Tracks the current SQL note",
+            "itemtype": "property",
+            "name": "sqlProfile",
+            "type": "ProfilerSQLNode",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 56,
+            "description": "Tracks the current tree depth",
+            "itemtype": "property",
+            "name": "depthCount",
+            "type": "Int",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 63,
+            "description": "List of all top-level step nodes",
+            "itemtype": "property",
+            "name": "topNodes",
+            "type": "Array",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 70,
+            "description": "Time the profiler was included. This is used to calculate \ntime-from-start values for all methods as well as total running time.",
+            "itemtype": "property",
+            "name": "globalStart",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 78,
+            "description": "Time the profiler 'ends'. This is populated just before rendering \noutput (see {@link Profiler::render()})",
+            "itemtype": "property",
+            "name": "globalEnd",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 86,
+            "description": "Total time script took to run",
+            "itemtype": "property",
+            "name": "globalDuration",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 93,
+            "description": "Global tracker for step times. Keeps track of how long each node \ntook to execute.  This is used to determine\nwhat is a \"trivial\" node, and what is not.",
+            "itemtype": "property",
+            "name": "childDurations",
+            "type": "Array",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 102,
+            "description": "Percentile boundary for trivial execution times",
+            "itemtype": "property",
+            "name": "trivialThreshold",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 109,
+            "description": "Execution time cut off value for trivial/non-trivial nodes",
+            "itemtype": "property",
+            "name": "trivialThresholdMS",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 116,
+            "description": "Total amount of time used in SQL queries",
+            "itemtype": "property",
+            "name": "totalQueryTime",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 123,
+            "description": "Used to identify when some methods are accessed internally\nversus when they're used externally (as an api or so)",
+            "itemtype": "property",
+            "name": "profilerKey",
+            "type": "String",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 131,
+            "description": "A lightweight shell node used to return when the profiler is disabled.",
+            "itemtype": "property",
+            "name": "ghostNode",
+            "type": "ProfilerGhostNode",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 138,
+            "description": "The parser instance",
+            "itemtype": "property",
+            "name": "parser",
+            "type": "Parser",
+            "readonly": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 145,
+            "description": "Create a constructor that basically says \"don't construct me!\"",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 178,
+            "description": "Getter for the readOnly properties",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 191,
+            "description": "Check to see if the profiler is enabled",
+            "itemtype": "method",
+            "name": "isEnabled",
+            "return": {
+                "description": "True if profiler is enabled, false if disabled",
+                "type": "Boolean"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 201,
+            "description": "Enable the profiler",
+            "itemtype": "method",
+            "name": "enable",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 210,
+            "description": "Disable the profiler",
+            "itemtype": "method",
+            "name": "disable",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 226,
+            "description": "Start a new step. This is the most-called method of the profiler.  \nIt initializes and returns a new step node.",
+            "itemtype": "method",
+            "name": "start",
+            "params": [
+                {
+                    "name": "nodeName",
+                    "description": "name/identifier for your step. is \n used later in the output to identify this step",
+                    "type": "Sstring"
+                }
+            ],
+            "return": {
+                "description": "returns an instance of \n\ta {@link ProfilerNode} if the profiler is enabled, or \n a {@link ProfilerGhostNode} if it's disabled",
+                "type": "ProfilerNode|ProfilerGhostNode"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 256,
+            "description": "End a step by name, or end all steps in the current tree.",
+            "itemtype": "method",
+            "name": "end",
+            "params": [
+                {
+                    "name": "nodeName",
+                    "description": "ends the first-found step with this name. (Note: a warning is generated if it's not the current step, because this is probably unintentional!)",
+                    "type": "String"
+                },
+                {
+                    "name": "nuke",
+                    "description": "denotes whether you are intentionally attempting to terminate the entire step-stack.  If true, the warning mentioned is not generated.",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "|ProfilerNode|ProfilerGhostNode returns null if you ended the top-level step node, or the parent to the ended node, or a ghost node if the profiler is disabled.",
+                "type": "Boolean"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 292,
+            "description": "Start a new sql query\n\nThis method is used to tell the profiler to track an sql query.  These are treated differently than step nodes",
+            "itemtype": "method",
+            "name": "sqlStart",
+            "params": [
+                {
+                    "name": "query",
+                    "description": "the query that you are running (used in the output of the profiler so you can view the query run)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "returns an instance of the {@link ProfilerGhostNode} if profiler is enabled, or {@link ProfilerGhostNode} if disabled",
+                "type": "ProfilerSQLNode|ProfilerGhostNode"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 316,
+            "description": "Stop profiling the current SQL call",
+            "itemtype": "method",
+            "name": "sqlEnd",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 327,
+            "description": "Increment the total query time\n\nThis method is used by the {@link ProfilerGhostNode} to increment the total query time for the page execution.\nThis method should <b>never</b> be called in userland.  There is zero need to.",
+            "itemtype": "method",
+            "name": "addQueryDuration",
+            "params": [
+                {
+                    "name": "time",
+                    "description": "amount of time the query took to execute in microseconds.",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Current amount of time (in microseconds) used to execute sql queries.",
+                "type": "Number"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 341,
+            "description": "Get the total amount of query time",
+            "itemtype": "method",
+            "name": "getTotalQueryTime",
+            "return": {
+                "description": "Total time used to execute sql queries (milliseconds, 1 significant digit)",
+                "type": "Number"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 351,
+            "description": "Get the global start time",
+            "itemtype": "method",
+            "name": "getGlobalStart",
+            "return": {
+                "description": "Start time of the script from unix epoch (milliseconds, 1 significant digit)",
+                "type": "Number"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 361,
+            "description": "Get the global script duration",
+            "itemtype": "method",
+            "name": "getGlobalDuration",
+            "return": {
+                "description": "Duration of the script (in milliseconds, 1 significant digit)",
+                "type": "Number"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 371,
+            "description": "Get the global memory usage in KB",
+            "itemtype": "method",
+            "name": "getMemUsage",
+            "params": [
+                {
+                    "name": "unit",
+                    "description": "a metric prefix to force the unit of bytes used (B, K, M, G)",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "''"
+                }
+            ],
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 412,
+            "description": "Render the profiler output",
+            "itemtype": "method",
+            "name": "render",
+            "params": [
+                {
+                    "name": "showDepth",
+                    "description": "the depth of the step tree to traverse when rendering the profiler output. -1 to render the entire tree",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "-1"
+                }
+            ],
+            "return": {
+                "description": "The render of the profiler to include on your page",
+                "type": "String"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 454,
+            "description": "Add node duration to the {@link Profiler::$childDurations} variable",
+            "itemtype": "method",
+            "name": "addDuration",
+            "params": [
+                {
+                    "name": "time",
+                    "description": "duration of the child node in microseconds",
+                    "type": "Number"
+                }
+            ],
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 464,
+            "description": "Set the Percentile Boundary Threshold. \nThis is used to set the percentile boundary for when a node is considered trivial or not.\nBy default, .75 is used.  This translates to the fastest 25% of nodes being regarded \"trivial\".\nThis is a sliding scale, so you will always see some output, regardless of how fast your application runs.",
+            "itemtype": "method",
+            "name": "setTrivialThreshold",
+            "params": [
+                {
+                    "name": "threshold",
+                    "description": "the threshold to use as the percentile boundary",
+                    "type": "Number"
+                }
+            ],
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 477,
+            "description": "Calculate the time cut-off for a trivial step. \nUtilizes the {@link Profiler::$trivialThreshold} value to determine how fast a step must be to be regarded \"trivial\"",
+            "itemtype": "method",
+            "name": "calculateThreshold",
+            "access": "protected",
+            "tagname": "",
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/Profiler.php",
+            "line": 498,
+            "description": "Determines if a node is trivial",
+            "itemtype": "method",
+            "name": "isTrivial",
+            "params": [
+                {
+                    "name": "node",
+                    "description": "The node to investigate",
+                    "type": "ProfilerNode"
+                }
+            ],
+            "return": {
+                "description": "True if a node is trivial, false if not",
+                "type": "Boolean"
+            },
+            "class": "Profiler",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerGhostNode.php",
+            "line": 14,
+            "ignore": "",
+            "class": "ProfilerGhostNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 10,
+            "description": "Name of the step",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 17,
+            "description": "Tree depth of this step",
+            "itemtype": "property",
+            "name": "depth",
+            "type": "Int",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 24,
+            "description": "Time the step started. Stored as microseconds from the unix epoc.",
+            "itemtype": "property",
+            "name": "started",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 31,
+            "description": "Time the step ended. Stored as microseconds from the unix epoc.",
+            "itemtype": "property",
+            "name": "ended",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 38,
+            "description": "Total time the step ran INCLUDING it's children",
+            "itemtype": "property",
+            "name": "totalDuration",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 45,
+            "description": "Total time the step ran WITHOUT it's children",
+            "itemtype": "property",
+            "name": "selfDuration",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 52,
+            "description": "Total time children steps spent running",
+            "itemtype": "property",
+            "name": "childDuration",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 59,
+            "description": "The parent step to this node",
+            "itemtype": "property",
+            "name": "parentNode",
+            "type": "ProfilerNode",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 66,
+            "description": "List of this step's direct children",
+            "itemtype": "property",
+            "name": "childNodes",
+            "type": "Array",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 73,
+            "description": "Number of queries run at this step",
+            "itemtype": "property",
+            "name": "sqlQueryCount",
+            "type": "Int",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 80,
+            "description": "List of this step's SQL queries",
+            "itemtype": "property",
+            "name": "sqlQueries",
+            "type": "Array",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 87,
+            "description": "Total time spent performing SQL queries. Stored in microseconds",
+            "itemtype": "property",
+            "name": "totalSQLQueryDuration",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 94,
+            "description": "Local reference to profiler key generated at initialization",
+            "itemtype": "property",
+            "name": "profilerKey",
+            "type": "String",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 120,
+            "description": "End the timer for this step. Call this after the code that is being \nprofiled by this step has completed executing",
+            "itemtype": "method",
+            "name": "end",
+            "params": [
+                {
+                    "name": "profilerKey",
+                    "description": "This is for internal use only! don't ever pass anything!",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "null"
+                }
+            ],
+            "return": {
+                "description": "returns parent node, or null if there is no parent",
+                "type": "Boolean|ProfilerNode"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 152,
+            "description": "This method is called by the Profiler::sqlStart method",
+            "itemtype": "method",
+            "name": "sqlStart",
+            "params": [
+                {
+                    "name": "sqlProfile",
+                    "description": "An instance of the {@link ProfilerSQLNode} to add to this step",
+                    "type": "ProfilerSQLNode"
+                }
+            ],
+            "return": {
+                "description": "reference to the {@link ProfilerSQLNode} object for the query initiated",
+                "type": "ProfilerSQLNode"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 166,
+            "description": "Return the name of this step",
+            "itemtype": "method",
+            "name": "getName",
+            "return": {
+                "description": "Name of this step",
+                "type": "String"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 176,
+            "description": "Return tree depth of this step",
+            "itemtype": "method",
+            "name": "getDepth",
+            "return": {
+                "description": "Tree depth of this step",
+                "type": "Int"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 186,
+            "description": "Return this step's parent node",
+            "itemtype": "method",
+            "name": "getParent",
+            "return": {
+                "description": "Returns {@link ProfilerNode} object for the parent node to this step, or null if there is no parent",
+                "type": "Boolean|ProfilerNode"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 196,
+            "description": "Increase the total time child steps have taken. Stored in microseconds",
+            "itemtype": "method",
+            "name": "increaseChildDuration",
+            "params": [
+                {
+                    "name": "time",
+                    "description": "Amount of time to add to the total child duration, in microseconds",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Return number total time child steps have taken, in microseconds",
+                "type": "Number"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 209,
+            "description": "Add child {@link ProfilerNode} to this node",
+            "itemtype": "method",
+            "name": "addChild",
+            "params": [
+                {
+                    "name": "childNode",
+                    "description": "the profiler node to add",
+                    "type": "ProfilerNode"
+                }
+            ],
+            "return": {
+                "description": "Return a reference to this profiler node (for chaining)",
+                "type": "ProfilerNode"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 221,
+            "description": "Determine if this node has child steps or not",
+            "itemtype": "method",
+            "name": "hasChildren",
+            "return": {
+                "description": "True if this node has child steps, false otherwise",
+                "type": "Boolean"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 231,
+            "description": "Get the children steps for this step",
+            "itemtype": "method",
+            "name": "getChildren",
+            "return": {
+                "description": "List of {@link ProfilerNodes} that are the child of this node",
+                "type": "Array"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 241,
+            "description": "Determine if this node has trivial children. Traverse the tree of child \nsteps until a non-trivial node is found.  This is used at render time.",
+            "itemtype": "method",
+            "name": "hasNonTrivialChildren",
+            "return": {
+                "description": "False if all children are trivial, true if there's at least one non-trivial",
+                "type": "Boolean"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 267,
+            "description": "Determine if SQL queries were executed at this step",
+            "itemtype": "method",
+            "name": "hasSQLQueries",
+            "return": {
+                "description": "True if there are queries, false if not",
+                "type": "Boolean"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 277,
+            "description": "Get all the SQL queries executed at this step",
+            "itemtype": "method",
+            "name": "getSQLQueries",
+            "return": {
+                "description": "list of {@link ProfilerSQLNode}s",
+                "type": "Array"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 287,
+            "description": "Return number of queries run at this step",
+            "itemtype": "method",
+            "name": "getSQLQueryCount",
+            "return": {
+                "description": "number of queries run at this step",
+                "type": "Int"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 297,
+            "description": "Increment the total sql duration at this step",
+            "itemtype": "method",
+            "name": "addQueryDuration",
+            "params": [
+                {
+                    "name": "time",
+                    "description": "amount of time to increment the SQL duration by, in microseconds",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Return instance of this step, for chaining",
+                "type": "ProfilerNode"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 308,
+            "description": "Get the total duration for SQL queries executed at this step in milliseconds",
+            "itemtype": "method",
+            "name": "getTotalSQLQueryDuration",
+            "return": {
+                "description": "Duration of query time at this step, in milliseconds, 1 significant digit",
+                "type": "Number"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 318,
+            "description": "Get the start time of this step in milliseconds",
+            "itemtype": "method",
+            "name": "getStart",
+            "return": {
+                "description": "Start time of this step, in milliseconds, from unix epoch. (1 significant digit)",
+                "type": "Number"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 328,
+            "description": "Get the end time of this step in milliseconds",
+            "itemtype": "method",
+            "name": "getEnd",
+            "return": {
+                "description": "End time of this step, in milliseconds, from unix epoch. (1 significant digit)",
+                "type": "Number"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 338,
+            "description": "Get the total time spent executing this node, including children",
+            "itemtype": "method",
+            "name": "getTotalDuration",
+            "return": {
+                "description": "Duration of this step, in milliseconds. (1 significant digit)",
+                "type": "Number"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerNode.php",
+            "line": 348,
+            "description": "Get the duration of execution for this step, excluding child nodes.",
+            "itemtype": "method",
+            "name": "getSelfDuration",
+            "return": {
+                "description": "Duration of this step, excluding child nodes. (1 significant digit)",
+                "type": "Number"
+            },
+            "class": "ProfilerNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 10,
+            "description": "The rendered normal nodes",
+            "itemtype": "property",
+            "name": "nodes",
+            "type": "String",
+            "class": "ProfilerRenderer",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 16,
+            "description": "The rendered query nodes",
+            "itemtype": "property",
+            "name": "queryNodes",
+            "type": "String",
+            "class": "ProfilerRenderer",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 22,
+            "description": "Instance of the Profiler",
+            "itemtype": "property",
+            "name": "_profiler",
+            "type": "Profiler",
+            "access": "private",
+            "tagname": "",
+            "class": "ProfilerRenderer",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 48,
+            "description": "Destroy",
+            "class": "ProfilerRenderer",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 57,
+            "description": "Render a {@link ProfilerNode} step node and it's children recursively",
+            "itemtype": "method",
+            "name": "renderNode",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "node",
+                    "description": "The node to render",
+                    "type": "ProfilerNode"
+                },
+                {
+                    "name": "maxDepth",
+                    "description": "the maximum depth of the tree to traverse and render.  -1 to traverse entire tree",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "-1"
+                }
+            ],
+            "return": {
+                "description": "The HTML markup rendering of the profiler node",
+                "type": "String"
+            },
+            "class": "ProfilerRenderer",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerRenderer.php",
+            "line": 93,
+            "description": "Render all {@link ProfilerSQLNode} queries for the given node, and traverse it's child nodes\nto render their queries also.",
+            "itemtype": "method",
+            "name": "renderNodeSQL",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "node",
+                    "description": "The node to begin rendering",
+                    "type": "ProfilerNode"
+                }
+            ],
+            "return": {
+                "description": "The HTML markup rendering of the SQL node",
+                "type": "String"
+            },
+            "class": "ProfilerRenderer",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 10,
+            "description": "The query that this object tracks",
+            "itemtype": "property",
+            "name": "query",
+            "type": "String",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 17,
+            "description": "Reference to the step this SQL query runs in",
+            "itemtype": "property",
+            "name": "profileNode",
+            "type": "ProfilerNode",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 24,
+            "description": "Start time of this query (in microseconds)",
+            "itemtype": "property",
+            "name": "started",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 31,
+            "description": "End time of this query (in microseconds)",
+            "itemtype": "property",
+            "name": "ended",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 38,
+            "description": "Duration for this query (in microseconds)",
+            "itemtype": "property",
+            "name": "duration",
+            "type": "Number",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 45,
+            "description": "Call stack backtrace of all methods/functions executed up until this SQL query is run",
+            "itemtype": "property",
+            "name": "callstack",
+            "type": "Array",
+            "access": "protected",
+            "tagname": "",
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 72,
+            "description": "End the timers for this sql node. Call this method when \nthe sql query has finished running.",
+            "itemtype": "method",
+            "name": "end",
+            "return": {
+                "description": "return a reference to this query, for chaining.",
+                "type": "ProfilerSQLNode"
+            },
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 90,
+            "description": "Get the query for this SQLNode. Query is parsed so extraneous \nspaces are removed where required.",
+            "itemtype": "method",
+            "name": "getQuery",
+            "return": {
+                "description": "Query for this node",
+                "type": "String"
+            },
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 101,
+            "description": "Get the type of query this is. Parse the query and try to figure out \nwhat kind of query it is.",
+            "itemtype": "method",
+            "name": "getQueryType",
+            "return": {
+                "description": "'reader' if this is a select query, 'writer' if this is a typical writer query, or 'special' if it's another kind",
+                "type": "String"
+            },
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 133,
+            "description": "Get the total execution duration for this query",
+            "itemtype": "method",
+            "name": "getDuration",
+            "return": {
+                "description": "Execution duration for this query in milliseconds, rounded to 1 significant digit.",
+                "type": "Number"
+            },
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 143,
+            "description": "Get the start time of this query, from the unix epoch.",
+            "itemtype": "method",
+            "name": "getStart",
+            "return": {
+                "description": "milliseconds from the unix epoch when this query started, rounded to 1 significant digit",
+                "type": "Number"
+            },
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        },
+        {
+            "file": "src/Canteen/Profiler/ProfilerSQLNode.php",
+            "line": 153,
+            "description": "Return the call stack for this query. Reference the php documentation \nfor {@link http://php.net/debug_backtrace debug_backtrace} for the \nstructure of the return array.",
+            "itemtype": "method",
+            "name": "getCallstack",
+            "return": {
+                "description": "call stack for this query",
+                "type": "Array"
+            },
+            "class": "ProfilerSQLNode",
+            "module": "Canteen\\Profiler"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: link",
+            "line": " src/Canteen/Profiler/Profiler.php:3"
+        },
+        {
+            "message": "unknown tag: ignore",
+            "line": " src/Canteen/Profiler/ProfilerGhostNode.php:14"
+        },
+        {
+            "message": "Missing item type\nOriginal library from:",
+            "line": " src/Canteen/Profiler/Profiler.php:3"
+        },
+        {
+            "message": "Missing item type\nCreate a constructor that basically says \"don't construct me!\"",
+            "line": " src/Canteen/Profiler/Profiler.php:145"
+        },
+        {
+            "message": "Missing item type\nGetter for the readOnly properties",
+            "line": " src/Canteen/Profiler/Profiler.php:178"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/Canteen/Profiler/ProfilerGhostNode.php:14"
+        },
+        {
+            "message": "Missing item type\nDestroy",
+            "line": " src/Canteen/Profiler/ProfilerRenderer.php:48"
+        }
+    ]
+}
