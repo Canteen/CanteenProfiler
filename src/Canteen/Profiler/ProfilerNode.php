@@ -99,17 +99,26 @@ namespace Canteen\Profiler
 		protected $profilerKey = null;
 
 		/**
+		*  Reference to the main profiler
+		*  @property {Profiler} _profiler
+		*  @private
+		*/
+		private $_profiler;
+
+		/**
 		*  Class which represents the profiler steps
 		*  
 		*  @class ProfilerNode
 		*  @constructor
+		*  @param {Profiler} profiler Reference to the profiler object
 		*  @param {string} name Name of this step
 		*  @param {int} depth Tree depth of this step
 		*  @param {ProfilerNode} parentNode Reference to this step's parent. null if top-level.
 		*  @param {string} profilerKey API key to identify an internal API call from an external one.
 		*/
-		public function __construct($name, $depth, $parentNode, $profilerKey)
+		public function __construct(Profiler $profiler, $name, $depth, $parentNode, $profilerKey)
 		{
+			$this->_profiler = $profiler;
 			$this->started = microtime(true);
 			$this->name = $name;
 			$this->depth = $depth;
@@ -128,7 +137,7 @@ namespace Canteen\Profiler
 		{
 			if (!$profilerKey || $profilerKey != $this->profilerKey)
 			{
-				$this->profiler->end($this->name);
+				$this->_profiler->end($this->name);
 
 				return $this->parentNode;
 			}
@@ -142,7 +151,7 @@ namespace Canteen\Profiler
 				if ($this->parentNode)
 				{
 					$this->parentNode->increaseChildDuration($this->totalDuration);
-					$this->profiler->addDuration( $this->selfDuration );
+					$this->_profiler->addDuration( $this->selfDuration );
 				}
 			}
 
@@ -250,7 +259,7 @@ namespace Canteen\Profiler
 			{
 				foreach ($this->getChildren() as $child)
 				{
-					if (!$this->profiler->isTrivial($child))
+					if (!$this->_profiler->isTrivial($child))
 					{
 						return true;
 					}

@@ -50,16 +50,25 @@ namespace Canteen\Profiler
 		protected $callstack = [];
 
 		/**
+		*  Reference to the main profiler
+		*  @property {Profiler} _profiler
+		*  @private
+		*/
+		private $_profiler;
+
+		/**
 		*  Class representing each SQL query run
 		*  @class ProfilerSQLNode
 		*  @extends CanteenBase
 		*  @constructor
+		*  @param {Profiler} profiler Reference to the profiler object
 		*  @param {String} query the sql query for this node
 		*  @param {Boolean|ProfilerNode} [profileNode=null] reference to the step 
 		*  that this query is running within
 		*/
-		public function __construct($query, $profileNode = null)
+		public function __construct(Profiler $profiler, $query, $profileNode = null)
 		{
+			$this->_profiler = $profiler;
 			$this->started = microtime(true);
 			$this->query = $query;
 			$this->profileNode = $profileNode;
@@ -82,7 +91,7 @@ namespace Canteen\Profiler
 				$this->ended = microtime(true);
 				$this->duration = $this->ended - $this->started;
 				$this->profileNode->addQueryDuration($this->duration);
-				$this->profiler->addQueryDuration($this->duration);
+				$this->_profiler->addQueryDuration($this->duration);
 			}
 			return $this;
 		}

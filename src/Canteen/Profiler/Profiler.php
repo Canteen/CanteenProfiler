@@ -237,7 +237,7 @@ namespace Canteen\Profiler
 		{	
 			if (!$this->isEnabled()) return $this->ghostNode;
 
-			$newNode = new ProfilerNode($nodeName, ++$this->depthCount, $this->currentNode, $this->profilerKey);
+			$newNode = new ProfilerNode($this, $nodeName, ++$this->depthCount, $this->currentNode, $this->profilerKey);
 
 			if ($this->currentNode)
 			{
@@ -306,7 +306,7 @@ namespace Canteen\Profiler
 				$this->start("Profiler Default Top Level");			
 			}
 
-			$this->sqlProfile = new ProfilerSQLNode($query, $this->currentNode);
+			$this->sqlProfile = new ProfilerSQLNode($this, $query, $this->currentNode);
 
 			$this->currentNode->sqlStart($this->sqlProfile);
 
