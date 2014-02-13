@@ -16,7 +16,7 @@
         }
 	],
 	"autoload": {
-        "psr-0": {"Canteen": "src/"}
+        "psr-4": {"Canteen\\Profiler\\": "src/"}
     },
 	"require": {
 		"php": ">=5.4.0",
