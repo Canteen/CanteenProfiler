@@ -1,7 +1,7 @@
 {
     "name": "canteen/profiler",
 	"description" : "Profiler for PHP to measure memory usage and performance.",
-	"version" : "1.0.0",
+	"version" : "1.0.1",
     "type": "library",
 	"keywords": ["memory", "profiler", "performance"],
     "license": "MIT",
